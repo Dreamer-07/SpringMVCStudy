@@ -1,0 +1,35 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!-- SpringMvc需要一个前端控制器负责拦截请求，并智能派发
+        这个前端控制器本质上就是一个 Servlet ，所以需要在 web.xml 下配置
+   -->
+  <servlet>
+    <servlet-name>springmvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <!-- SpringMVC 配置文件的位置 -->
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:Application/SpringMVC.xml</param-value>
+    </init-param>
+    <!--
+     load-on-startup:可以使对应的 Servlet 程序在Tomcat服务器启动后就创建对象，而不是第一次访问时再创建
+                     对应的参数越小，优先级越高，越先创建对象
+     -->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springmvc</servlet-name>
+    <!--
+    / 和 /* 的区别
+      /  : 能拦截除了 jsp 文件之外的请求，保证jsp可以正确访问
+      /* : 能拦截所有请求，包括 jsp 文件
+    -->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+</web-app>
