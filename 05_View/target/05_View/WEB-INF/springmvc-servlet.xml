@@ -25,9 +25,9 @@
             view-name:要映射到的页面地址
             在这里，仍会执行对应的 SpirngMVC 视图解析流程
     -->
-    <mvc:view-controller path="/login" view-name="login"></mvc:view-controller>
-    <!-- 开启mvc注解开发模式，解决 mvc:view-controller 的问题-->
-    <mvc:annotation-driven></mvc:annotation-driven>
+<!--    <mvc:view-controller path="/login" view-name="login"></mvc:view-controller>-->
+<!--    &lt;!&ndash; 开启mvc注解开发模式，解决 mvc:view-controller 的问题&ndash;&gt;-->
+<!--    <mvc:annotation-driven></mvc:annotation-driven>-->
 
     <!-- 配置自定义解析器 -->
     <bean class="pers.dreamer07.plus.MyViewResolver">

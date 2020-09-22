@@ -20,6 +20,7 @@
         <th>LastName</th>
         <th>Email</th>
         <th>Gender</th>
+        <th>Birth</th>
         <th>Department</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -30,6 +31,7 @@
             <td>${emp.lastName}</td>
             <td>${emp.email}</td>
             <td>${emp.gender==0?"Male":"Female"}</td>
+            <td>${emp.birth}</td>
             <td>${emp.department.departmentName}</td>
             <td><a href="${pageContext.request.contextPath}/emp/${emp.id}">Edit</a></td>
             <td><a href="${pageContext.request.contextPath}/emp/${emp.id}" class="deleteBtn">删除</a></td>

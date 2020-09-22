@@ -2,10 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 开启组件扫描 -->
     <context:component-scan base-package="pers.dreamer07"></context:component-scan>
@@ -15,4 +13,22 @@
         <property name="prefix" value="/WEB-INF/pages/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+
+    <!-- 解决 前端控制器 对静态资源的访问限制 -->
+    <mvc:default-servlet-handler/>
+    <!-- 解决使用 mvc:default-servlet-handler 后动态资源访问问题 -->
+    <!-- 使用 conversion-service 属性可以配置指定的 ConversionService 类型转换组件，而不是使用默认的-->
+    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+
+    <!-- 将 自定义类型转换器 加入到 ConversionService 中 -->
+    <!--
+     class 为 ConversionServiceFactoryBean - 该类会为我们创建一个 ConversionService 的 bean 实例
+     -->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <!-- 向 Set集合属性converters 内部注入 自定义类型转换器 -->
+        <property name="converters">
+            <bean class="pers.dreamer07.converterImpl.StringToEmpConverter"></bean>
+        </property>
+    </bean>
+
 </beans>

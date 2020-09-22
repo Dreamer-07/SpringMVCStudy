@@ -3,13 +3,21 @@ package pers.dreamer07.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import pers.dreamer07.bean.Department;
 import pers.dreamer07.bean.Employee;
 import pers.dreamer07.dao.DepartmentDao;
 import pers.dreamer07.dao.EmployeeDao;
 
+import javax.validation.Valid;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author shkstart
@@ -40,10 +48,25 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/emp",method = RequestMethod.POST) //添加员工对象
-    public String addEmp(Employee employee){
-        System.out.println("添加的员工对象 ：" + employee);
-        employeeDao.save(employee);
-        return "redirect:/emps"; //重定向到另一个目标方法，查询后请求转发到 list.jsp
+    public String addEmp(@Valid Employee employee, BindingResult result, Model model){
+        //在 目标方法 中遍历错误信息，保存到 ModelAndView 中
+        if(result.hasErrors()){
+            //获取所有的错误信息
+            List<FieldError> fieldErrors = result.getFieldErrors();
+            //使用 Map 保存错误信息，key为字段名，value为错误信息
+            HashMap<String, Object> errors = new HashMap<>();
+            for (FieldError fieldError : fieldErrors) {
+                String field = fieldError.getField();//对应的字段值
+                String defaultMessage = fieldError.getDefaultMessage();//异常信息
+                System.out.println(fieldError);
+                errors.put(field,defaultMessage); //将对应的信息保存在 Map 中
+            }
+            model.addAttribute("errorsInfo",errors); //将 Map 保存隐含模型中
+            return "add"; //如果数据校验出现错误，就请求转发到原页面(add.jsp)
+        }else{
+            employeeDao.save(employee);
+            return "redirect:/emps"; //重定向到另一个目标方法，查询后请求转发到 list.jsp
+        }
     }
 
     @RequestMapping(value = "/emp/{id}",method = RequestMethod.GET) //根据id查询员工对象
@@ -76,5 +99,7 @@ public class EmployeeController {
             Employee employee = employeeDao.get(id);
             model.addAttribute("employee",employee);
         }
+        Collection<Department> departments = departmentDao.getDepartments();
+        model.addAttribute("depts",departments);
     }
 }

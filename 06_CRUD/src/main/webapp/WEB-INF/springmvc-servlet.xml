@@ -17,6 +17,16 @@
     <!-- 解决 前端控制器 对静态资源的访问限制 -->
     <mvc:default-servlet-handler/>
     <!-- 解决使用 mvc:default-servlet-handler 后动态资源访问问题 -->
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+
+    <!-- 配置 ConversionService 组件 -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+    </bean>
+
+    <!-- 管理国际化资源文件(id必须为 messageSource) -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <!-- 指定文件的前缀名 -->
+        <property name="basename" value="errors"></property>
+    </bean>
 
 </beans>

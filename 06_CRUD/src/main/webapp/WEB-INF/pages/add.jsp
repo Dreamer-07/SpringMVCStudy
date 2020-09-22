@@ -21,11 +21,12 @@
              1. 作为表单项提交时的 name 属性值
              2. 绑定 模型数据对象 的 属性，可以自动回显对应的属性值
     --%>
-    lastName: <form:input path="lastName"/>  <br/>
-    email: <form:input path="email" />  <br/>
-    gender: <br/>
-    男: <form:radiobutton path="gender" value="1" /> <br/>
-    女: <form:radiobutton path="gender" value="0" /> <br/>
+    lastName: <form:input path="lastName"/> <form:errors path="lastName"/> -->(使用原生表单) ${errorsInfo.lastName} <br/>
+    email: <form:input path="email" /> <form:errors path="email"/> -->(使用原生表单) ${errorsInfo.email} <br/>
+    gender: <form:errors path="gender"/> -->(使用原生表单) ${errorsInfo.gender} <br/>
+    男: <form:radiobutton path="gender" value="1" />  <br/>
+    女: <form:radiobutton path="gender" value="0" />  <br/>
+    年龄：<form:input path="birth" /> <form:errors path="birth"/> -->(使用原生表单) ${errorsInfo.birth} <br/> <%-- 生日表单项 --%>
     dept:
     <%--
     items=""：指定要遍历的集合
@@ -33,7 +34,7 @@
     itemValue：在这里指 option 标签的 value 属性值，与 items 集合遍历出来的数据对象中的属性相绑定
     --%>
     <form:select path="department.id" items="${depts}" itemLabel="departmentName" itemValue="id">
-    </form:select>
+    </form:select> <form:errors path="department.id"/>
     <br/>
     <input type="submit" value="提交" />
 </form:form>
