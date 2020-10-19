@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_HelloWorld/01_HelloWorld.iml" filepath="$PROJECT_DIR$/01_HelloWorld/01_HelloWorld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_REST/02_REST.iml" filepath="$PROJECT_DIR$/02_REST/02_REST.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_Request/03_Request.iml" filepath="$PROJECT_DIR$/03_Request/03_Request.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_OutPut/04_OutPut.iml" filepath="$PROJECT_DIR$/04_OutPut/04_OutPut.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_View/05_View.iml" filepath="$PROJECT_DIR$/05_View/05_View.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_CRUD/06_CRUD.iml" filepath="$PROJECT_DIR$/06_CRUD/06_CRUD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Maven-Utils/Maven-Utils.iml" filepath="$PROJECT_DIR$/Maven-Utils/Maven-Utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SourceCode4.0/SourceCode4.0.iml" filepath="$PROJECT_DIR$/SourceCode4.0/SourceCode4.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringMVC.iml" filepath="$PROJECT_DIR$/.idea/SpringMVC.iml" />
+    </modules>
+  </component>
+</project>

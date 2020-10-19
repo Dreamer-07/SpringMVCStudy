@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="06_CRUD:war">
+    <output-path>$PROJECT_DIR$/06_CRUD/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>06_CRUD</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="06_CRUD.war">
+      <element id="artifact" artifact-name="06_CRUD:war exploded" />
+    </root>
+  </artifact>
+</component>

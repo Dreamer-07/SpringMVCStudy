@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="05_View" />
+        <module name="01_HelloWorld" />
+        <module name="Maven-Utils" />
+        <module name="SourceCode4.0" />
+        <module name="04_OutPut" />
+        <module name="06_CRUD" />
+        <module name="03_Request" />
+        <module name="02_REST" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="01_HelloWorld" target="1.7" />
+      <module name="02_REST" target="1.7" />
+      <module name="03_Request" target="1.7" />
+      <module name="04_OutPut" target="1.7" />
+      <module name="05_View" target="1.7" />
+      <module name="06_CRUD" target="1.7" />
+      <module name="Maven-Utils" target="1.5" />
+      <module name="SourceCode4.0" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

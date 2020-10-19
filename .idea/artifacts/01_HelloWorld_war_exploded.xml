@@ -1,0 +1,46 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="01_HelloWorld:war exploded">
+    <output-path>$PROJECT_DIR$/01_HelloWorld/target/01_HelloWorld</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>01_HelloWorld</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="01_HelloWorld" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.6.RELEASE" />
+          <element id="archive" name="Maven-Utils-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="Maven-Utils" />
+          </element>
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-impl:1.2.5" />
+          <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-spec:1.2.5" />
+          <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.1.5.Final" />
+          <element id="library" level="project" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.4" />
+          <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator-annotation-processor:6.1.5.Final" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.11.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.11.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.0" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/01_HelloWorld/target/01_HelloWorld/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="01_HelloWorld/web/Web" />
+    </root>
+  </artifact>
+</component>

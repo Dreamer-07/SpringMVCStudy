@@ -3,12 +3,14 @@
 ## 1.1 SpringMVC 简介
 
 - Spring 操作 Web 模块，简化 Web 开发
-  ![image-20200923011846608](学习笔记.assets/image-20200923011846608.png)
+  
 
-  SpringMVC == Spring中 的 Web 模块
+![image-20200923011846608](README.assets/image-20200923011846608.png)
+
+SpringMVC == Spring中 的 Web 模块
 
 - Spring 为 展现层 提供的基于 MVC 设计理念的 Web 框架
-  <img src="学习笔记.assets/image-20200901101001860.png" alt="image-20200901101001860"  />
+  <img src="README.assets/image-20200901101001860.png" alt="image-20200901101001860"  />
 
   回顾MVC
 
@@ -86,7 +88,7 @@
 4. 在 SpringMVC.xml 中开启 **组件**扫描
 
 5. 创建两个基本的 jsp 页面
-   <img src="学习笔记.assets/image-20200901121524364.png" alt="image-20200901121524364" style="zoom:80%;" />
+   <img src="README.assets/image-20200901121524364.png" alt="image-20200901121524364" style="zoom:80%;" />
 
 6. 创建第一个控制器 MyFirstController.java (一个普通的 Java 类)
 
@@ -159,7 +161,7 @@
 
 - 如果在 web.xml 中不指定配置文件，则需要在 WEB-INF 目录下创建一个
   对应 **前端控制器名(servlet-name)-servlet.xml 的 Spring** 配置文件
-  ![image-20200901151103173](学习笔记.assets/image-20200901151103173.png)
+  ![image-20200901151103173](README.assets/image-20200901151103173.png)
 
 ### 1.4.4 web.xml 中 前端控制器 url-pattern 的设置
 
@@ -170,7 +172,7 @@
 2. Tomcat 的 web,xml
    - 所有部署在 Tomcat 的 WEB 项目 中的 web.xml 都继承于 Tomcat 本身配置的 web.xml
    - Tomcat 中使用了 DefaultServlet 来处理除了 jsp 和 Servlet 外的静态资源，对于静态资源，Tomcat 会找到后返回
-     <img src="学习笔记.assets/image-20200901152706017.png" alt="image-20200901152706017" style="zoom:80%;" />
+     <img src="README.assets/image-20200901152706017.png" alt="image-20200901152706017" style="zoom:80%;" />
    - 而当前端控制器 Servlet 将 url-pattern 设置为 / 时，则会禁用 DefaultServlet ，导致静态资源无法访问
    - 而对于 JSP ，Tomcat 默认使用的是 JspServlet 拦截该请求，其 url-pattern 的参数值为 *.jsp
      所以并不会被 前端控制器 拦截
@@ -915,7 +917,7 @@ public ModelAndView testMAV(){
 ### 4.4.1 使用场景
 
 - 页面-修改图书的信息
-  <img src="学习笔记.assets/image-20200902154853975.png" alt="image-20200902154853975" style="zoom:80%;" />
+  <img src="README.assets/image-20200902154853975.png" alt="image-20200902154853975" style="zoom:80%;" />
 
 - 提交给 servlet 调用 dao
 
@@ -988,7 +990,7 @@ public void getBookById(Model model,Integer id){
 
 ### 4.4.4 原理
 
-<img src="学习笔记.assets/image-20200902165857870.png" alt="image-20200902165857870" style="zoom:80%;" />
+<img src="README.assets/image-20200902165857870.png" alt="image-20200902165857870" style="zoom:80%;" />
 
 - 通过上图，我们还有一种方法可以获取先行方法保存在 Map/Model/ModelMap 中的数据
   1. 在目标方法中，将 Map/Model/ModelMap  作为方法参数
@@ -998,7 +1000,7 @@ public void getBookById(Model model,Integer id){
 
 ## 5.1 前端控制器的架构
 
-<img src="学习笔记.assets/image-20200907202313717.png" alt="image-20200907202313717" style="zoom:80%;" />
+<img src="README.assets/image-20200907202313717.png" alt="image-20200907202313717" style="zoom:80%;" />
 
 
 
@@ -1106,7 +1108,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 ### 5.2.1 getHandler() 方法
 
 - 返回值类型
-  ![image-20200908193247224](学习笔记.assets/image-20200908193247224.png)
+  ![image-20200908193247224](README.assets/image-20200908193247224.png)
 
 - 源码
 
@@ -1130,8 +1132,8 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
   ```
 
   - HandlerMapping：处理器映射；里面保存了每一个处理器能够处理哪些请求的映射信息
-    <img src="学习笔记.assets/image-20200908193640609.png" alt="image-20200908193640609" style="zoom:80%;" />
-    <img src="学习笔记.assets/image-20200908194109976.png" alt="image-20200908194109976" style="zoom:80%;" />
+    <img src="README.assets/image-20200908193640609.png" alt="image-20200908193640609" style="zoom:80%;" />
+    <img src="README.assets/image-20200908194109976.png" alt="image-20200908194109976" style="zoom:80%;" />
   - handlerMap 如何保存映射信息的？
     - 在 SpringIOC 容器启动，初始化组件时，会扫描该类中的 @RequestMapping 
     - 保存在对应 HandlerMapping 中的 handlerMap 属性中
@@ -1735,7 +1737,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 ## 6.2 视图解析流程
 
 1. 在 ha.handle() 执行完目标方法后，会把方法的返回值，封装在 ModelAndView 对象中
-   <img src="学习笔记.assets/image-20200904115036496.png" alt="image-20200904115036496" style="zoom:80%;" />
+   <img src="README.assets/image-20200904115036496.png" alt="image-20200904115036496" style="zoom:80%;" />
 
 2. 调用  processDispatchResult() 方法
 
@@ -1757,9 +1759,9 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
    - View 和 ViewResolver(视图解析器)的关系
 
-     <img src="学习笔记.assets/image-20200904115816974.png" alt="image-20200904115816974" style="zoom:80%;" />
+     <img src="README.assets/image-20200904115816974.png" alt="image-20200904115816974" style="zoom:80%;" />
      ViewResolver 通过视图名(方法的返回值) 和 地区信息 创建对应的 View 对象
-     <img src="学习笔记.assets/image-20200905001135142.png" alt="image-20200905001135142" style="zoom:80%;" />
+     <img src="README.assets/image-20200905001135142.png" alt="image-20200905001135142" style="zoom:80%;" />
 
    - DispatcherServlet 中 resolveViewName() 方法 - 源码
 
@@ -1891,7 +1893,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
      ​				\ /
 
      调用对应视图对象 view 实现的 reader() 方法
-     <img src="学习笔记.assets/image-20200905000652087.png" alt="image-20200905000652087" style="zoom:80%;" />
+     <img src="README.assets/image-20200905000652087.png" alt="image-20200905000652087" style="zoom:80%;" />
 
    - 这里调用的是由 AbstractView 视图类实现的 reader 方法
      不同视图解析创建出来的视图对象类型可能不同
@@ -1970,7 +1972,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 1. 视图的作用就是**渲染数据模型**，将模型里的数据以某种形式呈现给客户
 
 2. 为了实现 视图模型 和 具体实现技术 的解耦，Spring定义了一个高度抽象的 View 接口
-   <img src="学习笔记.assets/image-20200905135920780.png" alt="image-20200905135920780" style="zoom:80%;" />
+   <img src="README.assets/image-20200905135920780.png" alt="image-20200905135920780" style="zoom:80%;" />
 
 3. 视图对象有视图解析负责实例化，由于视图是**无状态**的，所以他们不会有**线程安全问题**
 
@@ -2120,7 +2122,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
    ```
 
 5. 通过 resolveViewName() 方法查看在工作的视图解析器
-   <img src="学习笔记.assets/image-20200905203513508.png" alt="image-20200905203513508" style="zoom:80%;" />
+   <img src="README.assets/image-20200905203513508.png" alt="image-20200905203513508" style="zoom:80%;" />
 
 6. 有的视图解析器可能会解析错误导致页面资源404
    这时可以通过实现 Ordered 修改优先级，使一些特定的解析器优先解析
@@ -2154,7 +2156,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
    ```
 
 9. 重新发送对应请求，查看视图解析器的优先顺序
-   ![image-20200905204828520](学习笔记.assets/image-20200905204828520.png)
+   ![image-20200905204828520](README.assets/image-20200905204828520.png)
 
 10. 解决响应中文乱码问题 -  response.setContentType("text/html"); 设置返回类型
 
@@ -2213,11 +2215,11 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 - 数据绑定器 WebDataBinder 的核心组件
 
-  ![image-20200912082951349](学习笔记.assets/image-20200912082951349.png)
+  ![image-20200912082951349](README.assets/image-20200912082951349.png)
 
 - 数据绑定流程  - 图解
 
-  ![image-20200912083234600](学习笔记.assets/image-20200912083234600.png)
+  ![image-20200912083234600](README.assets/image-20200912083234600.png)
 
 
 
@@ -2228,17 +2230,17 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 - 业务要求：完成快速添加员工功能
 - 实现步骤：
   1. 在页面上定义好快速添加员工信息的规则
-     ![image-20200912112809706](学习笔记.assets/image-20200912112809706.png)
+     ![image-20200912112809706](README.assets/image-20200912112809706.png)
   2. 在控制器类定义可以处理该请求的目标方法
-     ![image-20200912112901036](学习笔记.assets/image-20200912112901036.png)
+     ![image-20200912112901036](README.assets/image-20200912112901036.png)
   3. 自定义类型转换器，将请求域中的 empInfo 转换成对应的 Employee 对象
 
 ### 8.2.2 注意事项
 
 - ConversionService 是一个接口
-  ![image-20200912114009144](学习笔记.assets/image-20200912114009144.png)
+  ![image-20200912114009144](README.assets/image-20200912114009144.png)
 - 其主要核心功能 - 类型转换：主要有 Convert 接口的对应实现类完成
-  ![image-20200912114147834](学习笔记.assets/image-20200912114147834.png)
+  ![image-20200912114147834](README.assets/image-20200912114147834.png)
 
 
 
@@ -2320,7 +2322,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
     3. 支持 @Vaild 注解对 JavaBean 实例进行 JSR 303 验证
     4. 支持使用 @ReqestBody 和 @ResponseBody 注解
 - 说明：SpringMVC 中有一个接口 BeanDefinitionParser，其实现类负责解析 SpringMVC 中的各种标签
-  ![image-20200912154459298](学习笔记.assets/image-20200912154459298.png)
+  ![image-20200912154459298](README.assets/image-20200912154459298.png)
 
 ### 8.3.1 AnnotationDrivenBeanDefinitionParser 类中主要做了什么？
 
@@ -2335,7 +2337,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 #### RequestMappingHandlerMapping - 保存请求动态资源映射信息
 
-![image-20200913122036919](学习笔记.assets/image-20200913122036919.png)
+![image-20200913122036919](README.assets/image-20200913122036919.png)
 
 ### 8.3.2 \<mvc:default-servlet-handler/> 和 \<mvc:annotation-driven/> 的使用
 
@@ -2343,7 +2345,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
   1. 不加这两个标签，动态资源(使用 RequestMapping 映射的资源)可以访问，静态资源不行
   
      - 该情况下 handlerMappings 和 handlerAdapters 的加载情况
-       ![image-20200913113112176](学习笔记.assets/image-20200913113112176.png)
+       ![image-20200913113112176](README.assets/image-20200913113112176.png)
   
      - **静态资源不能访问的原因** -  没有可以处理 静态资源请求 的映射信息
   
@@ -2352,7 +2354,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
   2. 只加上 \<mvc:default-servlet-handler> 标签后，静态资源可以访问，动态资源不行
   
      - handlerMappings & handlerAdapters 
-       ![image-20200913113252286](学习笔记.assets/image-20200913113252286.png)
+       ![image-20200913113252286](README.assets/image-20200913113252286.png)
   
      - **静态资源可以访问的原因** - 
        额外添加了 SimpleUrlHandlerMapping 来处理静态资源请求
@@ -2368,7 +2370,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
   3. 同时加上 \<mvc:default-servlet-handler> 和 \<mvc:annotation-driven/> 后，静态和动态都可以访问
   
      - handlerMappings & handlerAdapters
-       ![image-20200913113441514](学习笔记.assets/image-20200913113441514.png)
+       ![image-20200913113441514](README.assets/image-20200913113441514.png)
   
      - 提高 RequestMappingHandlerMapping 的优先级，使其可以优先处理请求
        而当遇到静态资源请求时，就会交给 SimpleUrlHandlerMapping 进行处理
@@ -2481,31 +2483,31 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
      - 知识点补充：Mavan的依赖版本中；Final 代表正式版；Alpha 代表第一版，Bug较多
 
   2. 给对应的 JavaBean 属性添加校验注解
-     ![image-20200913201235567](学习笔记.assets/image-20200913201235567.png)
+     ![image-20200913201235567](README.assets/image-20200913201235567.png)
 
      
 
   3. 给 SpringMVC 封装 JavaBean 对象时，在对应的参数上加上 @Valid 注解
-     ![image-20200913190644900](学习笔记.assets/image-20200913190644900.png)
+     ![image-20200913190644900](README.assets/image-20200913190644900.png)
 
      
 
   4. 获取校验结果 
 
      1. 在需要校验的 JavaBean 对象参数后面，加上一个 BindingResult参数，该参数会 封装前一个 JavaBean 对象的封装结果
-        ![image-20200913191030900](学习笔记.assets/image-20200913191030900.png)
+        ![image-20200913191030900](README.assets/image-20200913191030900.png)
      2. 在方法体中使用 result.hasErrors(); 获取校验结果
-        ![image-20200913193747923](学习笔记.assets/image-20200913193747923.png)
+        ![image-20200913193747923](README.assets/image-20200913193747923.png)
 
      
 
   5. 在页面上使用 \<form:errors path="对应的表单项name值"/> 回显错误信息
-     ![image-20200913194233717](学习笔记.assets/image-20200913194233717.png)
+     ![image-20200913194233717](README.assets/image-20200913194233717.png)
 
      
 
   6. 测试结果 - 除了回显数据意外还会写出错误信息
-     ![image-20200913201345583](学习笔记.assets/image-20200913201345583.png)
+     ![image-20200913201345583](README.assets/image-20200913201345583.png)
 
 
 
@@ -2514,7 +2516,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 #### 使用原生表单的情况
 
 1. 在 目标方法 中遍历错误信息，保存到 Model 中
-   ![image-20200913204419369](学习笔记.assets/image-20200913204419369.png)
+   ![image-20200913204419369](README.assets/image-20200913204419369.png)
 2. 在 JSP 页面中使用 ${} - EL表达式实现数据显示
    ![image-20200913204532747](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20200913204532747.png)
 
@@ -2536,7 +2538,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
    1. 分析错误对象 fieldError 的打印
 
-      ```
+      ```java
       Field error in object 'employee' on field 'lastName':  //错误的具体描述
       	rejected value []; //在注入NULL值时发生了错误
       	codes [ //错误代码
@@ -2613,9 +2615,11 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 
 
-### 8.5.5 SpringMVC × Ajax 
+## 8.6 SpringMVC × Ajax 
 
-#### 入门测试
+### 8.6.1 返回 JSON 数据
+
+> 使用 @ResponseBody 注解会**将返回值的内容放在响应体中**
 
 1. 导入 jackson 需要的依赖 / jar包
 
@@ -2637,7 +2641,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
    </dependency>
    ```
 
-2. 在对应的目标方法上使用 @ResponseBody 注解
+2. 在对应的目标方法上使用 **@ResponseBody** 注解
 
    ```java
    /**
@@ -2645,7 +2649,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
    *      - 如果返回值是一个对象 jackson 会帮我们解析成 json 格式的
    * @return
    */
-       @RequestMapping(value = "/ajax/empAll",method = RequestMethod.GET)
+   @RequestMapping(value = "/ajax/empAll",method = RequestMethod.GET)
    @ResponseBody
    public Collection<Employee> ajaxGetEmpAll(){
        Collection<Employee> employees = employeeDao.getAll();
@@ -2656,10 +2660,133 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
    
 
 3. 针对于特殊的属性可以使用对应的注解
-   ![image-20200920233205373](学习笔记.assets/image-20200920233205373.png)
+   ![image-20200920233205373](README.assets/image-20200920233205373.png)
 
 4. 在页面中发送请求进行测试
    
-   ![image-20200920233344879](学习笔记.assets/image-20200920233344879.png)
+   ![image-20200920233344879](README.assets/image-20200920233344879.png)
 
-#### 
+### 8.6.2 获取 JSON 数据
+
+> 使用 @RequestBody 获取请求体数据
+
+#### 使用 1 : 直接获取请求体数据
+
+1. 搭建前端页面
+
+   ![image-20201007103239497](README.assets/image-20201007103239497.png)
+
+2. 设计目标方法
+
+   ```java
+   /**
+    * @RequestBody 使用 1 - 直接获取请求体数据
+    * @param body
+    * @return
+    */
+   @RequestMapping("/addEmp")
+   public String addEmp(@RequestBody String body){
+       System.out.println(body);
+       return "success";
+   }
+   ```
+
+3. 发送请求，查看控制台打印
+
+   ![image-20201007103326353](README.assets/image-20201007103326353.png)
+
+#### 使用 2 : 接收 JSON 数据，封装对象
+
+1. 设计对应的目标方法
+
+   ```java
+   /**
+   * @RequestBody 使用 2 - 获取JSON数据后封装为实体类
+   * @param body
+   * @return
+   */
+   @RequestMapping("/addEmpBean")
+   public String addEmp(@RequestBody Employee body){
+       System.out.println(body);
+       return "success";
+   }
+   ```
+
+2. 设计前端 Ajax 请求
+
+   ```js
+   //定义一个 JS 对象
+   var emp = {
+       lastName:"EMT!",
+       email:"123@123.com",
+       gender:0
+   }
+   
+   $("a:first").click(function (){
+       //发送 Ajax 请求
+       $.ajax({
+           url:"ajax/addEmpBean",
+           type:"POST",
+           contentType:"application/json", //指定发送数据类型为 JSON
+           data:JSON.stringify(emp),//将 JS 对象转换为 JSON 字符串后作为数据发送
+           success:function (data){
+               alert(data);
+           }
+       })
+       return false;
+   });
+   ```
+
+3. 查看控制台打印和前端响应数据
+
+   ![image-20201007105157321](README.assets/image-20201007105157321.png)
+
+   ![image-20201007105206809](README.assets/image-20201007105206809.png)
+
+### 8.6.3 HttpEnity
+
+- 作用：如果在目标方法使用 HttpEnity 类型的参数，在对应的请求发送过来之后，该参数会获取这次请求中的**所有请求体和请求头**
+
+- 控制台打印
+
+  ![image-20201007110203213](README.assets/image-20201007110203213.png)
+
+### 8.6.3 ResponseEnity
+
+- 作用：可以代替 @ResponseBody 注解，返回自定义的响应体 + 响应头
+
+- 使用：
+
+  1. 设计目标方法，返回值类型为 ResponseEntity
+
+     ```java
+     /**
+     * 通过返回 ResponseEntity<String> 返回指定的响应体和响应头
+     *      - 泛型 T 为响应体的数据类型
+     * @return
+     */
+     @RequestMapping("/responseEnity")
+     public ResponseEntity<String> testResponseEntity(){
+         //响应体数据
+         String body = "success";
+         //自定义响应头
+         MultiValueMap<String, String> headers = new HttpHeaders();
+         //自定义响应头数据
+         headers.set("Set-Cookie","EMT!!=OK");
+         //响应状态
+         HttpStatus status = HttpStatus.OK;
+         return new ResponseEntity(body,headers,status);
+     }
+     ```
+
+  2. 前端发送请求查看对应的响应头数据
+
+     ![image-20201007112036720](README.assets/image-20201007112036720.png)、
+
+## 8.7 文件下载
+
+> SpringMVC 文件下载并没有 JavaWeb 的整洁
+>
+> 建议使用 request + response 即可
+
+## 8.8 HttpMessageConverter\<T>
